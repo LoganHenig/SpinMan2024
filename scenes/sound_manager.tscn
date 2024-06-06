@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dycnrxip6cqbc"]
+
+[ext_resource type="AudioStream" uid="uid://cj50l0sdd1hht" path="res://assets/brackeys_platformer_assets/music/loading music.mp3" id="1_gej3k"]
+
+[node name="soundManager" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_gej3k")
+autoplay = true
+max_distance = 5000.0
+attenuation = 1e-05
+panning_strength = 0.0
+bus = &"Music"

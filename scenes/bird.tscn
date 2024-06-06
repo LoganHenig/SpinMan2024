@@ -1,0 +1,251 @@
+[gd_scene load_steps=15 format=3 uid="uid://bbxpk2wth5oro"]
+
+[ext_resource type="Texture2D" uid="uid://ebmd3vhjtbv" path="res://assets/brackeys_platformer_assets/sprites/birb.png" id="1_i4p6c"]
+[ext_resource type="Script" path="res://scenes/bird.gd" id="1_nlql0"]
+[ext_resource type="PackedScene" uid="uid://c1h67ikxdtgua" path="res://scenes/killzone.tscn" id="2_biecc"]
+[ext_resource type="AudioStream" uid="uid://duqsd73m7qc8v" path="res://assets/brackeys_platformer_assets/sounds/bird.wav" id="4_c7lby"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44bka"]
+atlas = ExtResource("1_i4p6c")
+region = Rect2(0, 0, 750, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1674"]
+atlas = ExtResource("1_i4p6c")
+region = Rect2(750, 0, 750, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmvor"]
+atlas = ExtResource("1_i4p6c")
+region = Rect2(1500, 0, 750, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5q7v"]
+atlas = ExtResource("1_i4p6c")
+region = Rect2(2250, 0, 750, 750)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uh8hm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44bka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1674")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmvor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5q7v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gk874"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8pwps"]
+
+[sub_resource type="Animation" id="Animation_0aumn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("killzone/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lcm0n"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("killzone/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 17.4533]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedSprite2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5w3r5"]
+_data = {
+"RESET": SubResource("Animation_0aumn"),
+"death": SubResource("Animation_lcm0n")
+}
+
+[node name="bird" type="Node2D"]
+script = ExtResource("1_nlql0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_uh8hm")
+autoplay = "default"
+frame_progress = 0.531583
+
+[node name="killzone" parent="." instance=ExtResource("2_biecc")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CircleShape2D_gk874")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.8, 0.8)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.19209e-07, 0)
+shape = SubResource("CircleShape2D_8pwps")
+
+[node name="animation bird" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5w3r5")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_c7lby")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1h67ikxdtgua"]
+
+[ext_resource type="Script" path="res://scripts/killzone.gd" id="1_pxjm1"]
+[ext_resource type="AudioStream" uid="uid://g5k6p0jpd4lk" path="res://assets/brackeys_platformer_assets/sounds/grunt.wav" id="2_dv35o"]
+
+[sub_resource type="Animation" id="Animation_txe4r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ckq5c"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wekek"]
+_data = {
+"RESET": SubResource("Animation_txe4r"),
+"death": SubResource("Animation_ckq5c")
+}
+
+[node name="killzone" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_pxjm1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AudioStreamPlayer2D")
+libraries = {
+"": SubResource("AnimationLibrary_wekek")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_dv35o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

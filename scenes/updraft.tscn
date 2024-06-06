@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7bfs2bnx5u4b"]
+
+[ext_resource type="Script" path="res://scripts/updraft.gd" id="1_hi6fp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsyyh"]
+
+[node name="Area2D" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_hi6fp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tsyyh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="child_entered_tree" from="CollisionShape2D" to="CollisionShape2D" method="_on_child_entered_tree"]
