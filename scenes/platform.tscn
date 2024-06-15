@@ -3,11 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://dccdljfr40j4r" path="res://assets/brackeys_platformer_assets/sprites/platforms.png" id="1_a0aj1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sivx"]
-size = Vector2(32, 8)
+size = Vector2(60, 8)
 
 [node name="platform" type="AnimatableBody2D"]
+collision_layer = 256
+collision_mask = 256
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 1.5)
 texture = ExtResource("1_a0aj1")
 region_enabled = true
 region_rect = Rect2(16, 0, 32, 9)

@@ -2,13 +2,23 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var timer = $Timer
-@onready var animation_player = $AnimatedSprite2D/AnimationPlayer
+@onready var sword_animations = $AnimatedSprite2D/swordAnimations
+@onready var player_animations = $AnimatedSprite2D/PlayerAnimations
+@onready var death_timer = $DeathTimer
 
-const SPEED = 150.0
-const JUMP_VELOCITY = -300.0
+@onready var dash_length = $dashLength
+@onready var dashcool_down = $dashcoolDown
+
+const SPEED = 255.0
+const JUMP_VELOCITY = -450.0
 var upDraftBool = false
 var dashBool = "ready"
 var jumpsLeft = 2
+var currentSpeed = 0
+var acc = 15
+
+
+@export var health = 3
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -16,12 +26,16 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
-	
+	print(direction)
+	if (Input.is_action_just_pressed("down")):
+		set_collision_mask_value(9, false)
+	if (Input.is_action_just_released("down")):
+		set_collision_mask_value(9, true)
 	#Animation
 	if direction == 0:
-		animated_sprite.play("idle")
+		player_animations.play("idle")
 	else:
-		animated_sprite.play("run")
+		player_animations.play("run")
 	
 	
 	if not is_on_floor():
@@ -44,23 +58,45 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and jumpsLeft > 0:
 			jumpsLeft -= 1
 			velocity.y = JUMP_VELOCITY	
+	velocity.x = currentSpeed
+	print(currentSpeed)
 	if direction:
-		velocity.x = direction * SPEED
+		print('here')
+		if((currentSpeed + direction*acc) >= -SPEED && (currentSpeed + direction*acc) <= SPEED):
+			print('nothere')
+			#boost for switching directions
+			if((direction == 1 && currentSpeed < 0 ) || (direction == -1 && currentSpeed > 0)):
+				print('boost')
+				currentSpeed += direction*acc*3
+			elif((direction == 1 && currentSpeed < 150 ) || (direction == -1 && currentSpeed > -150)):
+				currentSpeed += direction*acc*2
+			else:
+				currentSpeed += direction*acc
+			
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if(currentSpeed < 0):
+			currentSpeed += acc*2
+		elif(currentSpeed > 0):
+			currentSpeed -= acc*2
+		elif(currentSpeed >= -15 && currentSpeed <= 15):
+			currentSpeed = 0
 	if(Input.is_action_just_pressed("dash") && dashBool == "ready"):
-		velocity.x += 1500 * direction
+		velocity.x += 700 * direction
+		#max speed in the direction of dash
+		currentSpeed = SPEED*direction
 		dashBool = "used"
-		print('dash')
-		timer.start()
+		dash_length.start()
+		dashcool_down.start()
+	elif(dashBool == "used"):
+		velocity.x += 700 * direction
 	if(upDraftBool):
-		velocity.y += -20 
+		velocity.y += -30 
 	
-	if(Input.is_action_just_pressed("attack")):
+	if(Input.is_action_pressed("attack")&& sword_animations.current_animation != "slash" && sword_animations.current_animation != "slashL"):
 		if(animated_sprite.flip_h == false):
-			animation_player.play("slash")
+			sword_animations.play("slash")
 		else:
-			animation_player.play("slashL")
+			sword_animations.play("slashL")
 		
 	
 	move_and_slide()
@@ -78,4 +114,25 @@ func enterVisible(animationBool):
 		enter_sprite.play("EnterVisible")
 	else:
 		enter_sprite.play("EnterNotVisible")
-		
+	
+func treeHit():
+	health -= 1
+	print(health)
+	player_animations.play("Hurt")
+	if(health <= 0):
+		Engine.time_scale = 0.5
+		get_node("CollisionShape2D").queue_free()
+		death_timer.start(1)
+
+
+func _on_death_timer_timeout():
+	Engine.time_scale = 1.0
+	get_tree().reload_current_scene()
+
+
+func _on_dashcool_down_timeout():
+	dashBool = "waiting"
+
+
+func _on_dash_length_timeout():
+	dashBool = "dashFinished"
