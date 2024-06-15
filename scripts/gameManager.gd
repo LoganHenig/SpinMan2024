@@ -5,11 +5,12 @@ extends Node
 @onready var game_manager = $gameManager
 
 
-@export var lvl = ""
-
 var score = 0
 @export var total: int = 100
 
+func _on_ready():
+	score_label.text = "0/" + str(total)
+	
 
 func foundCoin():
 	score += 1
@@ -21,6 +22,8 @@ func foundCoin():
 
 
 
-func nextLvlCall():
-	get_tree().change_scene_to_file("res://scenes/lvls/" + str(lvl))
+
+
+
+
 

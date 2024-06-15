@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://o0eqt87uyi7j"]
 
 [ext_resource type="Texture2D" uid="uid://338x7wyfbpft" path="res://assets/brackeys_platformer_assets/sprites/sludge.png" id="1_lmb53"]
-[ext_resource type="Script" path="res://scenes/sludge.gd" id="1_qufjd"]
+[ext_resource type="Script" path="res://scripts/sludge.gd" id="1_qufjd"]
 [ext_resource type="PackedScene" uid="uid://c1h67ikxdtgua" path="res://scenes/killzone.tscn" id="2_u4jab"]
 [ext_resource type="AudioStream" uid="uid://bxqo1j2f3l6hr" path="res://assets/brackeys_platformer_assets/sounds/splat.wav" id="4_fctwi"]
 

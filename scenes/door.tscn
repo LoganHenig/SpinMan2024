@@ -1,8 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://dqt1nmadr4p14"]
+[gd_scene load_steps=28 format=3 uid="uid://dqt1nmadr4p14"]
 
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_8s1w2"]
 [ext_resource type="Texture2D" uid="uid://cd43rcflbdnoh" path="res://assets/brackeys_platformer_assets/sprites/door.png" id="1_vtsi0"]
 [ext_resource type="Script" path="res://scripts/nextLvl.gd" id="3_6hftn"]
+[ext_resource type="AudioStream" uid="uid://cl4jhcf2a8x1j" path="res://assets/brackeys_platformer_assets/sounds/door open.wav" id="4_bav0l"]
+[ext_resource type="AudioStream" uid="uid://ct5ktxeunf5is" path="res://assets/brackeys_platformer_assets/sounds/door close.wav" id="5_fdsdp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gffel"]
 atlas = ExtResource("1_vtsi0")
@@ -126,7 +128,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of8pu"]
-size = Vector2(42, 49)
+size = Vector2(48, 67)
 
 [sub_resource type="Animation" id="Animation_4ohyw"]
 resource_name = "CloseDoor"
@@ -142,6 +144,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [&"closeDoor", &"closed"]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("audioDoorClose:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_fih88"]
 length = 0.001
@@ -156,6 +170,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"open"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("audioDoorClose:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("audioDoorOpen:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ruqhi"]
@@ -202,6 +240,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [&"openDoor", &"open"]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("audioDoorOpen:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qogt5"]
 _data = {
@@ -217,7 +267,7 @@ script = ExtResource("1_8s1w2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -19)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_sf7ta")
 animation = &"open"
 autoplay = "openDoor"
@@ -235,6 +285,12 @@ libraries = {
 "": SubResource("AnimationLibrary_qogt5")
 }
 autoplay = "closed"
+
+[node name="audioDoorOpen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_bav0l")
+
+[node name="audioDoorClose" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_fdsdp")
 
 [connection signal="area_entered" from="NextLvlDoorArea" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="NextLvlDoorArea" to="." method="_on_area_2d_area_exited"]

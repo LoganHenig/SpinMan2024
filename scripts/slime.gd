@@ -6,6 +6,7 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 
 const SPEED = 50
+@export var speedFactor: float = 1.0
 
 var direction = 1
 var health = 2
@@ -19,12 +20,12 @@ func _process(delta):
 		direction = 1	
 		animated_sprite.flip_h = false
 	
-	position.x += SPEED*delta*direction
+	position.x += SPEED*speedFactor*delta*direction
 	
 
 
 
-func _on_area_2d_area_entered(area):
+func _on_area_2d_area_entered(_area):
 	if(health <= 1):
 		animation_player.play("died")
 	else:
