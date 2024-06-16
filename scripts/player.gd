@@ -26,13 +26,14 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
-	print(direction)
+
 	if (Input.is_action_just_pressed("down")):
 		set_collision_mask_value(9, false)
 	if (Input.is_action_just_released("down")):
 		set_collision_mask_value(9, true)
 	#Animation
 	if direction == 0:
+#CREATE IDLE ANIMATION
 		player_animations.play("idle")
 	else:
 		player_animations.play("run")
@@ -48,7 +49,6 @@ func _physics_process(delta):
 		jumpsLeft = 2
 		if(dashBool == "waiting"):
 			dashBool="ready"
-			print('ready')
 		animated_sprite.rotation = 0
 		
 		if(direction > 0):
@@ -59,14 +59,10 @@ func _physics_process(delta):
 			jumpsLeft -= 1
 			velocity.y = JUMP_VELOCITY	
 	velocity.x = currentSpeed
-	print(currentSpeed)
 	if direction:
-		print('here')
 		if((currentSpeed + direction*acc) >= -SPEED && (currentSpeed + direction*acc) <= SPEED):
-			print('nothere')
 			#boost for switching directions
 			if((direction == 1 && currentSpeed < 0 ) || (direction == -1 && currentSpeed > 0)):
-				print('boost')
 				currentSpeed += direction*acc*3
 			elif((direction == 1 && currentSpeed < 150 ) || (direction == -1 && currentSpeed > -150)):
 				currentSpeed += direction*acc*2
@@ -102,7 +98,7 @@ func _physics_process(delta):
 	move_and_slide()
 func upDraft(tf):
 	upDraftBool = tf
-	print(tf)
+
 
 func _on_timer_timeout():
 	if(dashBool == "used"):
@@ -117,7 +113,6 @@ func enterVisible(animationBool):
 	
 func treeHit():
 	health -= 1
-	print(health)
 	player_animations.play("Hurt")
 	if(health <= 0):
 		Engine.time_scale = 0.5

@@ -332,6 +332,7 @@ script = ExtResource("1_psia1")
 total = 1
 
 [node name="player" parent="." instance=ExtResource("2_m0mx3")]
+unique_name_in_owner = true
 position = Vector2(1705, -449)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -375,7 +376,7 @@ stream = ExtResource("8_2p73y")
 
 [node name="Door" parent="." instance=ExtResource("9_m4es2")]
 position = Vector2(3136, -52)
-lvl = "tutorial"
+lvl = "mainMenu"
 
 [node name="TreeMan" parent="." instance=ExtResource("10_c4s0m")]
 position = Vector2(2393, -173)

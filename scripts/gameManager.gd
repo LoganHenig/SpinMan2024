@@ -5,12 +5,14 @@ extends Node
 @onready var game_manager = $gameManager
 
 
+
 var score = 0
 @export var total: int = 100
 
 func _on_ready():
 	score_label.text = "0/" + str(total)
 	
+
 
 func foundCoin():
 	score += 1

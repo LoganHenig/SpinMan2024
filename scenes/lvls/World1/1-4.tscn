@@ -492,6 +492,7 @@ script = ExtResource("1_flr7g")
 total = 11
 
 [node name="player" parent="." instance=ExtResource("1_ntg1a")]
+unique_name_in_owner = true
 position = Vector2(3, -9)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -649,6 +650,8 @@ autoplay = "fly around"
 
 [node name="NextLvlDoor" parent="." instance=ExtResource("14_p8hvn")]
 position = Vector2(4554, -254)
-lvl = "boss1"
+lvl = "World1/boss1"
+CurrentLvl = "lvl1_4"
+NextLvl = "lvl1_boss"
 
 [connection signal="ready" from="gameManager" to="gameManager" method="_on_ready"]

@@ -325,6 +325,7 @@ script = ExtResource("1_lcbf0")
 total = 3
 
 [node name="player" parent="." instance=ExtResource("1_dw7kp")]
+unique_name_in_owner = true
 position = Vector2(-1072, -23)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -475,7 +476,7 @@ scale = Vector2(0.9, 0.9)
 
 [node name="Door" parent="." instance=ExtResource("10_1p72w")]
 position = Vector2(3136, -52)
-lvl = "/World1/1-1"
+lvl = "mainMenu"
 
 [node name="Sludge" parent="." instance=ExtResource("11_v0ie7")]
 position = Vector2(1023, -14)
