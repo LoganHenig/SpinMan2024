@@ -338,6 +338,7 @@ autoplay = "openDoor"
 frame_progress = 0.661317
 
 [node name="NextLvlDoorArea" type="Area2D" parent="."]
+collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_6hftn")
 

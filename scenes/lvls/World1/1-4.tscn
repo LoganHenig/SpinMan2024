@@ -650,8 +650,8 @@ autoplay = "fly around"
 
 [node name="NextLvlDoor" parent="." instance=ExtResource("14_p8hvn")]
 position = Vector2(4554, -254)
-lvl = "World1/boss1"
+lvl = "World1/1-5"
 CurrentLvl = "lvl1_4"
-NextLvl = "lvl1_boss"
+NextLvl = "lvl1_5"
 
 [connection signal="ready" from="gameManager" to="gameManager" method="_on_ready"]

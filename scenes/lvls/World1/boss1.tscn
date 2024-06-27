@@ -334,6 +334,7 @@ total = 1
 [node name="player" parent="." instance=ExtResource("2_m0mx3")]
 unique_name_in_owner = true
 position = Vector2(1705, -449)
+health = 3
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(0, -8)

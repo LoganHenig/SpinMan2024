@@ -5,6 +5,7 @@ class_name ProgressData
 @export var lvl1_2 = false
 @export var lvl1_3 = false
 @export var lvl1_4 = false
+@export var lvl1_5 = false
 @export var lvl1_boss = false
 
 
@@ -23,6 +24,8 @@ func setLvlComplete(lvl):
 		lvl1_3 = true
 	elif( lvl == "lvl1_4"):
 		lvl1_4 = true
+	elif( lvl == "lvl1_5"):
+		lvl1_5 = true
 	elif( lvl == "lvl1_boss"):
 		lvl1_boss = true
 		
@@ -35,6 +38,8 @@ func checkLvl(lvl):
 		return lvl1_3
 	elif( lvl == "lvl1_4"):
 		return lvl1_4
+	elif( lvl == "lvl1_5"):
+		return lvl1_5
 	elif( lvl == "lvl1_boss"):
 		return lvl1_boss
 	else:
