@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var body_animation_player = $BodyAnimationPlayer
 @onready var sword_animation_player = $SwordAnimationPlayer
 
+@onready var running_particles = $runningParticles
 
 @onready var dash_length = $dashLength
 @onready var dashcool_down = $dashcoolDown
@@ -45,6 +46,7 @@ func _physics_process(delta):
 	
 	
 	if not is_on_floor():
+		running_particles.emitting = false
 		velocity.y += gravity * delta
 		if(animated_sprite.flip_h == true):
 			animated_sprite.rotation += 25 * delta
@@ -59,8 +61,14 @@ func _physics_process(delta):
 
 		if(direction > 0):
 			animated_sprite.flip_h = false
+			running_particles.emitting = true
+			running_particles.direction.x = -1
 		elif(direction < 0):
 			animated_sprite.flip_h = true
+			running_particles.emitting = true
+			running_particles.direction.x = -1
+		else:
+			running_particles.emitting = false
 	if Input.is_action_just_pressed("jump") and jumpsLeft > 0:
 			jumpsLeft -= 1
 			velocity.y = JUMP_VELOCITY	

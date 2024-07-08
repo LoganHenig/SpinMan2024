@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://b655yvas1i8w1"]
+[gd_scene load_steps=52 format=3 uid="uid://b655yvas1i8w1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_omqms"]
 [ext_resource type="AudioStream" uid="uid://bhadk6hvjc8hi" path="res://assets/brackeys_platformer_assets/sounds/SwordSwing.wav" id="4_fjeo0"]
@@ -684,6 +684,10 @@ _data = {
 "slashL": SubResource("Animation_mkgq0")
 }
 
+[sub_resource type="Curve" id="Curve_e6123"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.996951, 0.600602), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 258
@@ -773,8 +777,24 @@ libraries = {
 "": SubResource("AnimationLibrary_qmi6n")
 }
 
-[connection signal="timeout" from="dashLength" to="." method="_on_timer_timeout"]
+[node name="runningParticles" type="CPUParticles2D" parent="."]
+z_index = 1
+amount = 15
+lifetime = 0.2
+speed_scale = 0.5
+randomness = 1.0
+lifetime_randomness = 0.67
+emission_shape = 3
+emission_rect_extents = Vector2(1.5, 1)
+direction = Vector2(-1, -0.7)
+spread = 28.45
+initial_velocity_min = 155.17
+initial_velocity_max = 155.17
+scale_amount_min = 0.0
+scale_amount_curve = SubResource("Curve_e6123")
+
 [connection signal="timeout" from="dashLength" to="." method="_on_dash_length_timeout"]
-[connection signal="timeout" from="DeathTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="dashLength" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="dashcoolDown" to="." method="_on_dashcool_down_timeout"]
