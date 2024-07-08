@@ -66,7 +66,7 @@ func _physics_process(delta):
 		elif(direction < 0):
 			animated_sprite.flip_h = true
 			running_particles.emitting = true
-			running_particles.direction.x = -1
+			running_particles.direction.x = 1
 		else:
 			running_particles.emitting = false
 	if Input.is_action_just_pressed("jump") and jumpsLeft > 0:

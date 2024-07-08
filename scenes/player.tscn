@@ -704,6 +704,10 @@ shape = SubResource("CircleShape2D_bg6ws")
 wait_time = 0.1
 one_shot = true
 
+[node name="dashLength" type="Timer" parent="dashLength"]
+wait_time = 0.1
+one_shot = true
+
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 0.25
 
@@ -779,6 +783,7 @@ libraries = {
 
 [node name="runningParticles" type="CPUParticles2D" parent="."]
 z_index = 1
+emitting = false
 amount = 15
 lifetime = 0.2
 speed_scale = 0.5
@@ -795,6 +800,8 @@ scale_amount_curve = SubResource("Curve_e6123")
 
 [connection signal="timeout" from="dashLength" to="." method="_on_dash_length_timeout"]
 [connection signal="timeout" from="dashLength" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="dashLength/dashLength" to="." method="_on_dash_length_timeout"]
+[connection signal="timeout" from="dashLength/dashLength" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="dashcoolDown" to="." method="_on_dashcool_down_timeout"]
