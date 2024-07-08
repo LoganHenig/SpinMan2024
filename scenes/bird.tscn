@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bbxpk2wth5oro"]
+[gd_scene load_steps=16 format=3 uid="uid://bbxpk2wth5oro"]
 
 [ext_resource type="Texture2D" uid="uid://ebmd3vhjtbv" path="res://assets/brackeys_platformer_assets/sprites/birb.png" id="1_i4p6c"]
 [ext_resource type="Script" path="res://scripts/bird.gd" id="1_nlql0"]
@@ -217,6 +217,10 @@ _data = {
 "death": SubResource("Animation_lcm0n")
 }
 
+[sub_resource type="Curve" id="Curve_slxkr"]
+_data = [Vector2(0.0152439, 1), 0.0, 0.0, 0, 0, Vector2(0.996951, 0.00542176), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="bird" type="Node2D"]
 script = ExtResource("1_nlql0")
 
@@ -249,6 +253,24 @@ libraries = {
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_c7lby")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-1, 0)
+emitting = false
+amount = 30
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.83
+emission_shape = 1
+emission_sphere_radius = 6.6
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 45.98
+initial_velocity_max = 86.21
+damping_min = 39.655
+damping_max = 39.655
+scale_amount_curve = SubResource("Curve_slxkr")
+color = Color(0.984314, 0.0823529, 0.145098, 1)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
