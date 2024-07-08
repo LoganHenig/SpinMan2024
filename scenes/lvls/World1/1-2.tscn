@@ -478,6 +478,7 @@ script = ExtResource("2_cpdt0")
 total = 4
 
 [node name="player" parent="." instance=ExtResource("3_txmfs")]
+unique_name_in_owner = true
 position = Vector2(-396, -263)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -535,6 +536,8 @@ stream = ExtResource("8_ww13f")
 [node name="Door" parent="." instance=ExtResource("10_noh5r")]
 position = Vector2(3136, -52)
 lvl = "World1/1-3"
+CurrentLvl = "lvl1_2"
+NextLvl = "lvl1_3"
 
 [node name="slimes" type="Node" parent="."]
 

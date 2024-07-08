@@ -1,0 +1,905 @@
+[gd_scene load_steps=53 format=3 uid="uid://b655yvas1i8w1"]
+
+[ext_resource type="Texture2D" uid="uid://o474mbgcljcn" path="res://assets/brackeys_platformer_assets/sprites/knight.png" id="1_8y4rc"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_omqms"]
+[ext_resource type="Texture2D" uid="uid://c67vkw1kj105a" path="res://assets/brackeys_platformer_assets/sprites/ninja.png" id="3_oq4xc"]
+[ext_resource type="AudioStream" uid="uid://bhadk6hvjc8hi" path="res://assets/brackeys_platformer_assets/sounds/SwordSwing.wav" id="4_fjeo0"]
+[ext_resource type="Texture2D" uid="uid://b4ngergtdc1mk" path="res://assets/brackeys_platformer_assets/sprites/mySword.png" id="4_onwoh"]
+[ext_resource type="AudioStream" uid="uid://27m3xf74wkw4" path="res://assets/brackeys_platformer_assets/sounds/oof.wav" id="5_jpp8m"]
+[ext_resource type="Texture2D" uid="uid://cuxep475alrn0" path="res://assets/brackeys_platformer_assets/sprites/Enter.png" id="5_t8dpo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dttfl"]
+atlas = ExtResource("1_8y4rc")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdv86"]
+atlas = ExtResource("1_8y4rc")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sihrj"]
+atlas = ExtResource("1_8y4rc")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdeu3"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(0, 0, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on881"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(25, 0, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sgui"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(50, 0, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hqxj"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(75, 0, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps2ej"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(100, 0, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x140c"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(125, 0, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_walc4"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(150, 0, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g47e"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(0, 24, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg4j5"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(25, 24, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhddo"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(50, 24, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8ky7"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(75, 24, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7wn6"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(100, 24, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkrx0"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(125, 24, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2o4w"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(150, 24, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq3ap"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(0, 24, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oixvv"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(25, 24, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjny5"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(50, 24, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrqpn"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(75, 24, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvwbw"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(100, 24, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iswg"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(125, 24, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix5bl"]
+atlas = ExtResource("3_oq4xc")
+region = Rect2(150, 24, 25, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vowm3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dttfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdv86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sihrj")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdeu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on881")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4sgui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hqxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps2ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x140c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_walc4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g47e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg4j5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhddo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8ky7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7wn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkrx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2o4w")
+}],
+"loop": true,
+"name": &"runL",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq3ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oixvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjny5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrqpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvwbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2iswg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ix5bl")
+}],
+"loop": true,
+"name": &"runR",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_6xyts"]
+resource_name = "Hurt"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"hurt", &"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../oof:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dn7wk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0286772]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Area2D/CollisionShapeR:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Area2D/CollisionShapeL:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../AudioStreamPlayer2D:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..:animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"run"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../oof:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(941.01, -679.58)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:flip_h")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../characterSprites:animation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"runL"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../characterSprites:flip_h")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../characterSprites:offset")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8.085, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4g4le"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../characterSprites:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4.08, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4i5yl"]
+resource_name = "run"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"run"]
+}
+
+[sub_resource type="Animation" id="Animation_xpbu4"]
+resource_name = "setSwingCollision"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Area2D/CollisionShapeL:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Area2D/CollisionShapeR:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6quys"]
+resource_name = "slash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.548033, 1.27235]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Area2D/CollisionShapeR:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AudioStreamPlayer2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Area2D/CollisionShapeL:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(941.01, -679.58)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:flip_h")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qrbrg"]
+resource_name = "slashL"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.942478, -1.02974]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Area2D/CollisionShapeL:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AudioStreamPlayer2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Area2D/CollisionShapeR:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-924.64, -679.58)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:flip_h")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4fca3"]
+resource_name = "runR"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../characterSprites:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"runR"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../characterSprites:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../characterSprites:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4.685, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3hgt8"]
+resource_name = "runL"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../characterSprites:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"runL"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../characterSprites:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../characterSprites:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4.49, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o7uuo"]
+_data = {
+"Hurt": SubResource("Animation_6xyts"),
+"RESET": SubResource("Animation_dn7wk"),
+"idle": SubResource("Animation_4g4le"),
+"run": SubResource("Animation_4i5yl"),
+"runL": SubResource("Animation_3hgt8"),
+"runR": SubResource("Animation_4fca3"),
+"setSwingCollision": SubResource("Animation_xpbu4"),
+"slash": SubResource("Animation_6quys"),
+"slashL": SubResource("Animation_qrbrg")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bg6ws"]
+radius = 5.09902
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8c7h"]
+atlas = ExtResource("5_t8dpo")
+region = Rect2(0, 0, 1500, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spa54"]
+atlas = ExtResource("5_t8dpo")
+region = Rect2(1500, 0, 1500, 750)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tnwue"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8c7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spa54")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_4cxas"]
+resource_name = "EnterNotVisible"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enterSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_155wj"]
+resource_name = "EnterVisible"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enterSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_iht27"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enterSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2x54r"]
+_data = {
+"EnterNotVisible": SubResource("Animation_4cxas"),
+"EnterVisible": SubResource("Animation_155wj"),
+"RESET": SubResource("Animation_iht27")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwrht"]
+size = Vector2(29.7128, 36.25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k78s2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_onwoh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D"]
+z_index = 5
+collision_layer = 258
+collision_mask = 257
+script = ExtResource("1_omqms")
+
+[node name="characterSprites" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -13)
+scale = Vector2(1.1, 1.1)
+sprite_frames = SubResource("SpriteFrames_vowm3")
+animation = &"runL"
+autoplay = "idle"
+offset = Vector2(-8.085, 0)
+flip_h = true
+
+[node name="swordAnimations" type="AnimationPlayer" parent="characterSprites"]
+root_node = NodePath("../../swordSprite")
+libraries = {
+"": SubResource("AnimationLibrary_o7uuo")
+}
+autoplay = "setSwingCollision"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+scale = Vector2(1.7, 1.7)
+shape = SubResource("CircleShape2D_bg6ws")
+
+[node name="dashLength" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="enterSprite2" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -54)
+scale = Vector2(0.02, 0.02)
+sprite_frames = SubResource("SpriteFrames_tnwue")
+autoplay = "default"
+frame_progress = 0.269509
+
+[node name="enterSprite" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2x54r")
+}
+autoplay = "EnterNotVisible"
+
+[node name="dashcoolDown" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-0.1375, -16.5)
+scale = Vector2(1.5, 1.5)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShapeR" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(18.7583, -8.33333)
+shape = SubResource("RectangleShape2D_cwrht")
+
+[node name="CollisionShapeL" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-18.3853, -8.20834)
+shape = SubResource("RectangleShape2D_cwrht")
+one_way_collision_margin = 0.0
+
+[node name="swordSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-9.83477e-07, -9)
+rotation = 0.0286772
+scale = Vector2(0.024, 0.027)
+sprite_frames = SubResource("SpriteFrames_k78s2")
+frame_progress = 0.660856
+offset = Vector2(941.01, -679.58)
+flip_h = true
+
+[node name="PlayerAnimations" type="AnimationPlayer" parent="."]
+root_node = NodePath("../swordSprite")
+libraries = {
+"": SubResource("AnimationLibrary_o7uuo")
+}
+autoplay = "setSwingCollision"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0.275, -18)
+scale = Vector2(1.5, 1.5)
+stream = ExtResource("4_fjeo0")
+volume_db = -7.615
+
+[node name="oof" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0.275, -18)
+scale = Vector2(1.5, 1.5)
+stream = ExtResource("5_jpp8m")
+volume_db = -7.615
+
+[connection signal="timeout" from="dashLength" to="." method="_on_dash_length_timeout"]
+[connection signal="timeout" from="dashLength" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="dashcoolDown" to="." method="_on_dashcool_down_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

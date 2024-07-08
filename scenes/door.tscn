@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dqt1nmadr4p14"]
+[gd_scene load_steps=30 format=3 uid="uid://dqt1nmadr4p14"]
 
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_8s1w2"]
 [ext_resource type="Texture2D" uid="uid://cd43rcflbdnoh" path="res://assets/brackeys_platformer_assets/sprites/door.png" id="1_vtsi0"]
@@ -31,6 +31,10 @@ atlas = ExtResource("1_vtsi0")
 region = Rect2(0, 0, 500, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pl3du"]
+atlas = ExtResource("1_vtsi0")
+region = Rect2(0, 0, 500, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xex4c"]
 atlas = ExtResource("1_vtsi0")
 region = Rect2(0, 0, 500, 375)
 
@@ -97,6 +101,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xex4c")
+}],
+"loop": true,
+"name": &"disabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_scpmb")
 }],
 "loop": true,
@@ -156,6 +168,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_fih88"]
 length = 0.001
@@ -195,6 +219,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ruqhi"]
 resource_name = "closed"
@@ -209,6 +245,33 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"closed"]
+}
+
+[sub_resource type="Animation" id="Animation_0i7hv"]
+resource_name = "disabled"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"disabled"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.295867, 0.295866, 0.295866, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_a7ywe"]
@@ -258,6 +321,7 @@ _data = {
 "CloseDoor": SubResource("Animation_4ohyw"),
 "RESET": SubResource("Animation_fih88"),
 "closed": SubResource("Animation_ruqhi"),
+"disabled": SubResource("Animation_0i7hv"),
 "open": SubResource("Animation_a7ywe"),
 "openDoor": SubResource("Animation_1nu2d")
 }
@@ -271,8 +335,10 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_sf7ta")
 animation = &"open"
 autoplay = "openDoor"
+frame_progress = 0.661317
 
 [node name="NextLvlDoorArea" type="Area2D" parent="."]
+collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_6hftn")
 

@@ -682,6 +682,7 @@ autoplay = "attack"
 libraries = {
 "": SubResource("AnimationLibrary_gwwpk")
 }
+autoplay = "RESET"
 
 [node name="trunkHitArea" type="Area2D" parent="."]
 collision_layer = 4
