@@ -1,0 +1,339 @@
+[gd_scene load_steps=19 format=3 uid="uid://brxtapyagu3vr"]
+
+[ext_resource type="Script" path="res://scenes/alter.gd" id="1_rsdal"]
+[ext_resource type="Texture2D" uid="uid://dvjy0f3p60wuf" path="res://assets/brackeys_platformer_assets/sprites/alter.png" id="1_syr48"]
+[ext_resource type="Texture2D" uid="uid://cbb6r7ua1ygwy" path="res://assets/brackeys_platformer_assets/sprites/spear.png" id="2_me7tt"]
+[ext_resource type="Texture2D" uid="uid://cbvg2mow4o4qe" path="res://assets/brackeys_platformer_assets/sprites/spark_05.png" id="3_q636t"]
+[ext_resource type="Texture2D" uid="uid://bvs613140ococ" path="res://assets/brackeys_platformer_assets/sprites/fire_01.png" id="4_b4x42"]
+[ext_resource type="Texture2D" uid="uid://bbwkr48mkecld" path="res://assets/brackeys_platformer_assets/sprites/smoke_01.png" id="5_v06hf"]
+[ext_resource type="Texture2D" uid="uid://dtjsx2xor31x6" path="res://assets/brackeys_platformer_assets/sprites/fire_02.png" id="6_1gwip"]
+[ext_resource type="AudioStream" uid="uid://de3oa4s181l2u" path="res://assets/brackeys_platformer_assets/sounds/changeWeapon.wav" id="8_8nsbg"]
+
+[sub_resource type="Curve" id="Curve_nqi78"]
+_data = [Vector2(0.0152439, 0.00542176), 0.0, -0.256868, 0, 0, Vector2(0.256098, 0.295181), 0.0, 0.0, 0, 0, Vector2(0.567073, 0.365663), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.1926, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_s7qtv"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(0.898039, 0.490196, 0, 1, 1, 1, 0, 0)
+
+[sub_resource type="Curve" id="Curve_a78hp"]
+_data = [Vector2(0.00304879, 0), 0.0, 10.4723, 0, 0, Vector2(0.198171, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.76506), -1.1926, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_lrh5c"]
+offsets = PackedFloat32Array(0, 0.83, 1)
+colors = PackedColorArray(0.452385, 0.328987, 0, 1, 0.811765, 0.811765, 0, 1, 1, 1, 0, 0)
+
+[sub_resource type="Environment" id="Environment_kvuou"]
+background_mode = 3
+glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_r3j5c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spear:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -56)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alterSprite/spark:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("alterSprite/yellow:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("alterSprite/smoke:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("alterSprite/yellow2:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("spear:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_tuocr"]
+resource_name = "emptyAlter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("alterSprite/spark:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alterSprite/yellow:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("alterSprite/smoke:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("alterSprite/yellow2:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("spear:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_lm2po"]
+resource_name = "spearAvalible"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spear:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -56), Vector2(0, -65)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x5j05"]
+_data = {
+"RESET": SubResource("Animation_r3j5c"),
+"emptyAlter": SubResource("Animation_tuocr"),
+"spearAvalible": SubResource("Animation_lm2po")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6n4jt"]
+size = Vector2(16, 54)
+
+[node name="alterNode" type="Node2D"]
+script = ExtResource("1_rsdal")
+
+[node name="alterSprite" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -13)
+texture = ExtResource("1_syr48")
+
+[node name="spark" type="CPUParticles2D" parent="alterSprite"]
+modulate = Color(34.595, 5, 1, 1)
+position = Vector2(-1, -16)
+amount = 10
+lifetime = 1.1
+texture = ExtResource("3_q636t")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, -1)
+spread = 35.95
+gravity = Vector2(0, -150)
+initial_velocity_max = 50.63
+angular_velocity_min = 30.0
+angular_velocity_max = 30.0
+linear_accel_min = 50.0
+linear_accel_max = 50.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_nqi78")
+color_ramp = SubResource("Gradient_s7qtv")
+
+[node name="yellow" type="CPUParticles2D" parent="alterSprite"]
+modulate = Color(3, 1, 1, 1)
+position = Vector2(-1, -16)
+amount = 10
+lifetime = 0.7
+texture = ExtResource("4_b4x42")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, -1)
+spread = 50.0
+gravity = Vector2(0, -150)
+initial_velocity_max = 50.63
+angular_velocity_min = 25.0
+angular_velocity_max = 25.0
+linear_accel_min = 50.0
+linear_accel_max = 50.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_a78hp")
+color_ramp = SubResource("Gradient_lrh5c")
+
+[node name="smoke" type="CPUParticles2D" parent="alterSprite"]
+position = Vector2(-1, -16)
+amount = 10
+lifetime = 1.1
+texture = ExtResource("5_v06hf")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, -150)
+initial_velocity_max = 50.63
+angular_velocity_min = 25.0
+angular_velocity_max = 25.0
+linear_accel_min = 50.0
+linear_accel_max = 50.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_a78hp")
+color_ramp = SubResource("Gradient_s7qtv")
+
+[node name="yellow2" type="CPUParticles2D" parent="alterSprite"]
+modulate = Color(2.5, 1.5, 1, 1)
+position = Vector2(-1, -16)
+amount = 10
+lifetime = 0.7
+texture = ExtResource("6_1gwip")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, -1)
+spread = 50.0
+gravity = Vector2(0, -150)
+initial_velocity_max = 50.63
+angular_velocity_min = 25.0
+angular_velocity_max = 25.0
+linear_accel_min = 50.0
+linear_accel_max = 50.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_a78hp")
+color_ramp = SubResource("Gradient_s7qtv")
+
+[node name="spear" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -56)
+rotation = -1.5708
+texture = ExtResource("2_me7tt")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kvuou")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x5j05")
+}
+autoplay = "spearAvalible"
+
+[node name="changeWeaponArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="changeWeaponArea"]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_6n4jt")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_8nsbg")
+
+[connection signal="area_entered" from="changeWeaponArea" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="changeWeaponArea" to="." method="_on_change_weapon_area_area_entered"]
+[connection signal="body_entered" from="changeWeaponArea" to="." method="_on_change_weapon_area_body_entered"]

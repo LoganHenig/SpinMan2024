@@ -19,6 +19,7 @@ var dashBool = "ready"
 var jumpsLeft = 2
 var currentSpeed = 0
 var acc = 15
+var weapon = ""
 
 
 @export var health = 3
@@ -102,11 +103,12 @@ func _physics_process(delta):
 	if(upDraftBool):
 		velocity.y += -30 
 	
-	if(Input.is_action_pressed("attack")&& sword_animation_player.current_animation != "slash" && sword_animation_player.current_animation != "slashL"):
+	if(Input.is_action_pressed("attack")&& sword_animation_player.current_animation.find("slash") == -1	):
 		if(animated_sprite.flip_h == false):
-			sword_animation_player.play("slash")
+			print('made it here')
+			sword_animation_player.play("slash" + weapon)
 		else:
-			sword_animation_player.play("slashL")
+			sword_animation_player.play("slashL" + weapon)
 		
 	
 	move_and_slide()
@@ -147,3 +149,7 @@ func _on_dashcool_down_timeout():
 
 func _on_dash_length_timeout():
 	dashBool = "dashFinished"
+
+func changeWeapon(newWeapon):
+	weapon = newWeapon
+	

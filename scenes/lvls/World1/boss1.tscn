@@ -378,6 +378,7 @@ stream = ExtResource("8_2p73y")
 [node name="Door" parent="." instance=ExtResource("9_m4es2")]
 position = Vector2(3136, -52)
 lvl = "mainMenu"
+NextLvl = "lvl2_1"
 
 [node name="TreeMan" parent="." instance=ExtResource("10_c4s0m")]
 position = Vector2(2393, -173)

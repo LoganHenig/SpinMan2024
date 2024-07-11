@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://b655yvas1i8w1"]
+[gd_scene load_steps=56 format=3 uid="uid://b655yvas1i8w1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_omqms"]
 [ext_resource type="AudioStream" uid="uid://bhadk6hvjc8hi" path="res://assets/brackeys_platformer_assets/sounds/SwordSwing.wav" id="4_fjeo0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cuxep475alrn0" path="res://assets/brackeys_platformer_assets/sprites/Enter.png" id="5_t8dpo"]
 [ext_resource type="Texture2D" uid="uid://c67vkw1kj105a" path="res://assets/brackeys_platformer_assets/sprites/ninja.png" id="5_wdb06"]
 [ext_resource type="Texture2D" uid="uid://b4ngergtdc1mk" path="res://assets/brackeys_platformer_assets/sprites/mySword.png" id="6_qtini"]
+[ext_resource type="Texture2D" uid="uid://cbb6r7ua1ygwy" path="res://assets/brackeys_platformer_assets/sprites/spear.png" id="7_17hfw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bg6ws"]
 radius = 5.09902
@@ -269,6 +270,9 @@ size = Vector2(39, 42)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cpjjn"]
 size = Vector2(37, 42)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b8gs"]
+size = Vector2(32, 4)
+
 [sub_resource type="Animation" id="Animation_4ohxb"]
 length = 0.001
 tracks/0/type = "value"
@@ -367,7 +371,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("bodyAnimatedSprite/Sprite2D:visible")
+tracks/0/path = NodePath("bodyAnimatedSprite/swordContainer/swordSprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -379,7 +383,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("bodyAnimatedSprite/Sprite2D:offset")
+tracks/1/path = NodePath("bodyAnimatedSprite/swordContainer/swordSprite:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -391,7 +395,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("bodyAnimatedSprite/Sprite2D:rotation")
+tracks/2/path = NodePath("bodyAnimatedSprite/swordContainer/swordSprite:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -403,7 +407,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("bodyAnimatedSprite/attackArea2D/CollisionShape2D:disabled")
+tracks/3/path = NodePath("bodyAnimatedSprite/swordContainer/swordArea/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -415,7 +419,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("bodyAnimatedSprite/Sprite2D:flip_h")
+tracks/4/path = NodePath("bodyAnimatedSprite/swordContainer/swordSprite:flip_h")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -427,7 +431,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("bodyAnimatedSprite/Sprite2D:position")
+tracks/5/path = NodePath("bodyAnimatedSprite/swordContainer/swordSprite:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -439,7 +443,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("bodyAnimatedSprite/attackArea2D/CollisionShape2D2:disabled")
+tracks/6/path = NodePath("bodyAnimatedSprite/swordContainer/swordArea/CollisionShape2D2:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -472,6 +476,66 @@ tracks/8/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("bodyAnimatedSprite/spearContainer/spearSprite:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("bodyAnimatedSprite/spearContainer/spearSprite:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("bodyAnimatedSprite/spearContainer/spearSprite:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("bodyAnimatedSprite/spearContainer/spearSprite:flip_h")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("bodyAnimatedSprite/spearContainer/spearSprite/DamageArea/spearTipCollision:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_5t63d"]
 resource_name = "hurt"
@@ -494,7 +558,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("bodyAnimatedSprite/Sprite2D:visible")
+tracks/0/path = NodePath("bodyAnimatedSprite/swordContainer/swordSprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -506,7 +570,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("bodyAnimatedSprite/Sprite2D:offset")
+tracks/1/path = NodePath("bodyAnimatedSprite/swordContainer/swordSprite:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -518,7 +582,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("bodyAnimatedSprite/Sprite2D:rotation")
+tracks/2/path = NodePath("bodyAnimatedSprite/swordContainer/swordSprite:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -530,7 +594,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("bodyAnimatedSprite/attackArea2D/CollisionShape2D:disabled")
+tracks/3/path = NodePath("bodyAnimatedSprite/swordContainer/swordArea/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -542,7 +606,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("bodyAnimatedSprite/Sprite2D:flip_h")
+tracks/4/path = NodePath("bodyAnimatedSprite/swordContainer/swordSprite:flip_h")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -554,7 +618,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("bodyAnimatedSprite/Sprite2D:position")
+tracks/5/path = NodePath("bodyAnimatedSprite/swordContainer/swordSprite:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -566,7 +630,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("bodyAnimatedSprite/attackArea2D/CollisionShape2D2:disabled")
+tracks/6/path = NodePath("bodyAnimatedSprite/swordContainer/swordArea/CollisionShape2D2:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -594,7 +658,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("bodyAnimatedSprite/Sprite2D:flip_h")
+tracks/0/path = NodePath("bodyAnimatedSprite/swordContainer/swordSprite:flip_h")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -606,7 +670,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("bodyAnimatedSprite/Sprite2D:position")
+tracks/1/path = NodePath("bodyAnimatedSprite/swordContainer/swordSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -618,7 +682,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("bodyAnimatedSprite/Sprite2D:offset")
+tracks/2/path = NodePath("bodyAnimatedSprite/swordContainer/swordSprite:offset")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -630,7 +694,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("bodyAnimatedSprite/Sprite2D:rotation")
+tracks/3/path = NodePath("bodyAnimatedSprite/swordContainer/swordSprite:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -642,7 +706,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("bodyAnimatedSprite/Sprite2D:visible")
+tracks/4/path = NodePath("bodyAnimatedSprite/swordContainer/swordSprite:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -654,7 +718,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("bodyAnimatedSprite/attackArea2D/CollisionShape2D2:disabled")
+tracks/5/path = NodePath("bodyAnimatedSprite/swordContainer/swordArea/CollisionShape2D2:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -676,12 +740,130 @@ tracks/6/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_4xpp1"]
+resource_name = "slash-spear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bodyAnimatedSprite/spearContainer/spearSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bodyAnimatedSprite/spearContainer/spearSprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.149945, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 2), Vector2(57, 2), Vector2(0, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bodyAnimatedSprite/spearContainer/spearSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bodyAnimatedSprite/spearContainer/spearSprite:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("bodyAnimatedSprite/spearContainer/spearSprite/DamageArea/spearTipCollision:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_arm67"]
+resource_name = "slashL-spear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bodyAnimatedSprite/spearContainer/spearSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bodyAnimatedSprite/spearContainer/spearSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.149945, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 2), Vector2(-57, 2), Vector2(0, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bodyAnimatedSprite/spearContainer/spearSprite:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bodyAnimatedSprite/spearContainer/spearSprite/DamageArea/spearTipCollision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qmi6n"]
 _data = {
 "RESET": SubResource("Animation_gjdx6"),
 "hurt": SubResource("Animation_5t63d"),
 "slash": SubResource("Animation_4qyl3"),
-"slashL": SubResource("Animation_mkgq0")
+"slash-spear": SubResource("Animation_4xpp1"),
+"slashL": SubResource("Animation_mkgq0"),
+"slashL-spear": SubResource("Animation_arm67")
 }
 
 [sub_resource type="Curve" id="Curve_e6123"]
@@ -747,28 +929,49 @@ sprite_frames = SubResource("SpriteFrames_k0iyk")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="attackArea2D" type="Area2D" parent="bodyAnimatedSprite"]
-position = Vector2(0, 12)
-collision_layer = 4
-collision_mask = 4
+[node name="swordContainer" type="Node2D" parent="bodyAnimatedSprite"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bodyAnimatedSprite/attackArea2D"]
-position = Vector2(25.5, -22)
-shape = SubResource("RectangleShape2D_68f0k")
-disabled = true
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="bodyAnimatedSprite/attackArea2D"]
-position = Vector2(-24.5, -22)
-shape = SubResource("RectangleShape2D_cpjjn")
-disabled = true
-
-[node name="Sprite2D" type="Sprite2D" parent="bodyAnimatedSprite"]
+[node name="swordSprite" type="Sprite2D" parent="bodyAnimatedSprite/swordContainer"]
 visible = false
 position = Vector2(-4, -11)
 rotation = -0.397935
 scale = Vector2(0.025, 0.025)
 texture = ExtResource("6_qtini")
 offset = Vector2(590.985, -654.59)
+
+[node name="swordArea" type="Area2D" parent="bodyAnimatedSprite/swordContainer"]
+visible = false
+position = Vector2(0, 12)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bodyAnimatedSprite/swordContainer/swordArea"]
+position = Vector2(25.5, -22)
+shape = SubResource("RectangleShape2D_68f0k")
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bodyAnimatedSprite/swordContainer/swordArea"]
+position = Vector2(-24.5, -22)
+shape = SubResource("RectangleShape2D_cpjjn")
+disabled = true
+
+[node name="spearContainer" type="Node2D" parent="bodyAnimatedSprite"]
+
+[node name="spearSprite" type="Sprite2D" parent="bodyAnimatedSprite/spearContainer"]
+visible = false
+position = Vector2(0, 2)
+scale = Vector2(1.3, 1)
+texture = ExtResource("7_17hfw")
+
+[node name="DamageArea" type="Area2D" parent="bodyAnimatedSprite/spearContainer/spearSprite"]
+position = Vector2(0, -2)
+scale = Vector2(0.769231, 1)
+collision_layer = 4
+collision_mask = 4
+
+[node name="spearTipCollision" type="CollisionShape2D" parent="bodyAnimatedSprite/spearContainer/spearSprite/DamageArea"]
+position = Vector2(35, 2)
+shape = SubResource("RectangleShape2D_0b8gs")
 
 [node name="BodyAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -780,6 +983,7 @@ autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_qmi6n")
 }
+autoplay = "RESET"
 
 [node name="runningParticles" type="CPUParticles2D" parent="."]
 z_index = 1
